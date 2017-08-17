@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<title>大礼拜</title>
+	<link href="http://cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../static/css/page/dalibai.css">
+	<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_ogyhajkznay8pvi.css">
+	<script type="text/javascript" src="../static/js/public/computeDPR.my.js"></script>
+</head>
+<body class="swiper-container">
+	<header class="title"><a class="butt left" href="my.html">返回</a>大礼拜</header>
+	<div class="pagination"></div>
+	<div class="swiper-wrapper">
+		<div class="scroll swiper-slide">
+			<form action="" method="" accept-charset="utf-8">
+				<div class="list">
+					<div class="item">
+						<div class="title">本地用户名：</div>
+						<div class="input-box"><input type="text" readonly name="name-bd" value="本地用户名"></div>
+					</div>
+					<div class="item">
+						<div class="title">真实姓名：</div>
+						<div class="input-box"><input type="text" name="name" value="真实姓名"></div>
+					</div>
+					<div class="item">
+						<div class="title">目标时间：</div>
+						<div class="input-box"><input type="date" name="date" value="2016-11-10"></div>
+					</div>
+					<div class="item">
+						<div class="title">大礼拜：</div>
+						<div class="input-box"><input type="number" name="dalibai" required value=""></div>
+					</div>
+					<div class="item">
+						<div class="title">供水：</div>
+						<div class="input-box"><input type="number" name="gongshui" required value=""></div>
+					</div>
+					<div class="item">
+						<div class="title">统计：</div>
+						<div class="input-box"><input type="number" name="tongji" required value=""></div>
+					</div>
+					<div class="item">
+						<div class="title">曼达：</div>
+						<div class="input-box"><input type="number" name="manda" required value=""></div>
+					</div>
+					<div class="item">
+						<div class="title">百字明：</div>
+						<div class="input-box"><input type="number" name="baiziming" required value=""></div>
+					</div>
+				</div>
+				<div class="button-box"><button class="button button-1" type="submit">提交</button></div>
+			</form>
+		</div>
+		<div class="scroll swiper-slide">
+			<div class="history-list">
+				<a class="block item" href="dalibaiShow.html"><span>大礼拜</span><span class="time">时间：</span><span>2016-11-10</span><span class="iconfont icon-right"></span></a>
+				<a class="block item" href="dalibaiShow.html"><span>大礼拜</span><span class="time">时间：</span><span>2016-11-10</span><span class="iconfont icon-right"></span></a>
+			</div>
+			<div class="button-box"><button class="button button-1">加载更多</button></div>
+			<div class="loading"><span class="iconfont icon-loading rotate"></span><span>正在加载中...</span></div>
+			<div class="no-more"><span>没有更多了，我是有底线的人！</span></div>
+		</div>
+		<div class="scroll swiper-slide">
+			新增纪录
+		</div>
+	</div>
+</body>
+<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script src="http://cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+<script type="text/javascript">
+	(function(){
+		// 轮播
+		var mySwiper = new Swiper('.swiper-container', {
+			paginationClickable :true,//分页器控制滚动开启
+			pagination: '.pagination',
+			paginationBulletRender: function (index, className) {
+				return '<div class="' + className + ' pagination-item-' + index + '">' + ((index==0)?('新增纪录'):((index==1)?('历史纪录'):('统计'))) + '</div>';
+			}
+		});
+	})();
+</script>
+</html>

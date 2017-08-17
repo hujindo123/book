@@ -1,0 +1,55 @@
+@charset 'utf-8';
+// === 轮播标题组件 ===
+// 重写轮播样式
+html{
+	overflow: hidden;
+}
+.swiper-wrapper{
+	@include flex-item();
+	width: 100%;
+}
+.swiper-slide{
+	height: auto;
+}
+.pagination{
+	padding-top: 0.3125rem;
+	background: linear-gradient(#ccc,#ccc) left 98%/100% 1px no-repeat;
+}
+.swiper-pagination-bullet{
+	width: 50%;
+	height: initial;
+	background: none;
+	text-align: center;
+	border-radius: initial;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ccc;
+	opacity: 1;
+	line-height: 0.625rem;
+	color: #888;
+	background-color: #fff;
+	&::active{
+		// background-color: rgba(163,184,251,0.1);
+		background-color: #fff;
+	}
+}
+.swiper-pagination-bullet-active{
+	color: #333;
+	border-bottom: 0;
+	border-top: 1px solid #ccc;
+	width: 49%;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	background: url(../../image/public/title_bg_2_150_150_min.png) right bottom/auto 100% no-repeat #fff;
+}
+.pagination-item-0.swiper-pagination-bullet-active{
+	margin-left: 1%!important;
+	background-position: left bottom;
+}
+.pagination-item-1.swiper-pagination-bullet-active{
+	margin-right: 1%!important;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+	margin: 0;
+}

@@ -1,0 +1,75 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+// --- 页面样式begin ---
+
+// === 个人中心 ===
+
+.header{
+	@include flex-box();
+	padding: 10px 0;
+	@include border-bottom-m($color: #ccc);
+	.left{
+		margin: 0 10px;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		overflow: hidden;
+		background: url(../../image/public/loading_img_100_min.png) center/ 40% auto no-repeat;
+		position: relative;
+		border: 1px solid #3f6ef1;
+		&::after{
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: url(../../image/public/photo_up_200_200_min.png) center/ 100% auto no-repeat;
+		}
+	}
+	.right{
+		@include flex-item();
+		@include flex-box($align: center);
+		.content{
+			@include flex-item();
+			line-height: 2;
+		}
+	}
+}
+.box{
+	overflow: hidden;
+	.item{
+		float: left;
+		width: 3.3333333rem;
+		height: 3.3333333rem;
+		text-align: center;
+		@include border-right-m($color: #ccc);
+		@include border-bottom-m($color: #ccc);
+		background-color: rgba(255,255,255,.8);
+		@include flex-box($align: center);
+		&:nth-child(3n){
+			&::before{
+				display: none;
+			}
+		}
+		div{
+			@include flex-item();
+			p{
+				text-align: center;
+				color: #666;
+			}
+			.iconfont{
+				font-size: 20px;
+				color: #666;
+			}
+		}
+	}
+}
+
+// --- 页面样式end ---

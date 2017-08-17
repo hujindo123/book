@@ -1,0 +1,83 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+
+// --- 页面样式begin ---
+// 分类列表
+.sort-show-list{
+	padding: 0.15625rem;
+	box-sizing: border-box;
+	.sort-show-item{
+		width: 4.53125rem;
+		margin: 0.15625rem;
+		box-shadow: 0 0 1px #ccc;
+		background-color: rgba(255,255,255,0.7);
+		position: relative;
+		.img-box{
+			height: 4.53125rem;
+		}
+		&:active{
+			box-shadow: none;
+			background-color: #fbfbfb;
+		}
+		.text{
+			text-align: center;
+			padding: 0.15625rem;
+			color: #333;
+		}
+		.left-top{
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			line-height: 1;
+			color: #333;
+			padding: 4px 8px;
+			background-color: #fff;
+			box-shadow: 0 0 1px 1px #ccc;
+			&.top-2{
+				top: auto;
+				bottom: 30px;
+				color: #ccc;
+			}
+		}
+		.right-top{
+			position: absolute;
+			top: 0;
+			right: 0;
+			line-height: 1;
+			color: #ccc;
+		}
+		&.selected{
+			box-shadow: 0 0 2px 1px rgba(163, 184, 251,1);
+		}
+	}
+	.selected{
+		.left-top{
+			box-shadow: 0 0 3px 1px rgba(163, 184, 251,1);
+			color: rgba(163, 184, 251,1)!important;
+		}
+		.right-top.iconfont{
+			color: rgb(137,163,247);
+		}
+	}
+	.img-box{
+		height: 4.53125rem;
+		img{
+			height: 4.53125rem;
+		}
+	}
+}
+
+// 恭请佛书按钮
+.button-box{
+	position: fixed;
+	bottom: 40px;
+	width: 100%;
+}
+
+// --- 页面样式end ---

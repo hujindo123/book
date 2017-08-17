@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<title>佛书列表</title>
+	<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_1476292910_8352153.css">
+	<link href="http://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../static/css/page/sortShow.css">
+	<script type="text/javascript" src="../static/js/public/computeDPR.my.js"></script>
+</head>
+<body>
+	<header class="title"><a class="butt left" href="sort.html">返回</a>分类一</header>
+	<div class="body">
+		<!-- <form action="" method="" accept-charset="utf-8"> -->
+			<div class="list-2-n sort-show-list">
+				<div class="list-2-n-item sort-show-item" id="id-1">
+					<div class="img-box"><img onerror="this.remove();" src=""></div>
+					<div class="text"><p class="name text-overflow-1">分类一名字一分类一名字一</p></div>
+					<div class="position-absolute-box">
+						<span class="left-top">￥1234</span>
+						<span class="left-top top-2">运费：￥12</span>
+						<span class="right-top iconfont icon-multi-select-no"></span>
+					</div>
+					<input type="hidden">
+				</div>
+				<div class="list-2-n-item sort-show-item" id="id-2">
+					<div class="img-box"><img onerror="this.remove();" src="http://pic.58pic.com/58pic/15/62/72/30r58PICFtM_1024.jpg"></div>
+					<div class="text"><p class="name text-overflow-1">分类一名字一</p></div>
+					<div class="position-absolute-box">
+						<span class="left-top">￥1234</span>
+						<span class="left-top top-2">运费：￥12</span>
+						<span class="right-top iconfont icon-multi-select-no"></span>
+					</div>
+					<input type="hidden">
+				</div>
+			</div>
+			<div class="button-box">
+				<a class="button button-1 animated" style='display: none;' id='sublime-butt' href="orderSubmit.html">恭请佛书</a>
+			</div>
+		<!-- </form> -->
+	</div>
+</body>
+<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script type="text/javascript">
+	(function(){
+		// 给每本佛书加上点击事件    多选项绑定选择事件
+		$('.sort-show-list').on('touchend','.sort-show-item',function(e){
+			var _this = $(this);
+			var right_top_icon = $('.right-top.iconfont',_this);
+			if ( _this.hasClass('selected') ) {
+				// 去除选中状态
+				_this.removeClass('selected');
+				right_top_icon.removeClass('icon-multi-select-yes').addClass('icon-multi-select-no');
+				// $('input[type="hidden"]',_this).removeAttr('value');
+			}else{
+				// 添加选中状态
+				_this.addClass('selected');
+				right_top_icon.removeClass('icon-multi-select-no').addClass('icon-multi-select-yes');
+				// $('input[type="hidden"]',_this).attr('value',_this.attr('id'));
+			}
+			// 判断是否应该显示提交按钮
+			sublimeStatus();
+		});
+
+		// 判断是否应该显示提交按钮
+		function sublimeStatus(){
+			var dom = $('.sort-show-item.selected');
+			var _sublime = $('#sublime-butt');
+			if( dom.length === 0 ){
+				// 隐藏
+				_sublime.removeClass('jello').attr('style','display: none;');
+			}else{
+				// 显示
+				_sublime.addClass('jello').attr('style','display: inline-block;');
+			}
+		}
+	})(window,Zepto);
+	
+</script>
+</html>

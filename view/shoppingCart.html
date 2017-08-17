@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<title>购物车</title>
+	<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_8n6h2uljkk2o6r.css">
+	<link rel="stylesheet" href="../static/css/page/shoppingCart.css">
+	<script type="text/javascript" src="../static/js/public/computeDPR.my.js"></script>
+</head>
+<body>
+	<header class="title"><a class="butt left" href="">返回</a>购物车<a class="butt right j-edit" href="javascript:;">编辑</a></header>
+	<div class="body">
+		<div class="shopping-cart-no-data">
+			<span class="iconfont icon-shopping-cart"></span>
+			<p>这里什么都还没有！</p>
+		</div>
+		<div class="list">
+			<div class="item">
+				<div class="iconfont icon-multi-select-no j-icon"></div>
+				<div class="content">
+					<div class="img-box"><img src="http://bbs.redocn.com/digestImages/20081027/200810271132351166712864.jpg"></div>
+					<div class="right">
+						<p class="name">这里是名字这里是名字这里是名字这里是名字这里是名字这里是名字这里是名字这里是名字</p>
+						<p class="type">所属分类：佛书类</p>
+						<div class="button-box">
+							<div class="button j-delete" style="display: none;">删除</div>
+							<div class="butt-box"><div class="button sub">－</div><input type="number" name="" value="1"><div class="button add">＋</div><!-- 这个地方必须要连着这样写哈  不然样式会出问题 -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="iconfont icon-multi-select-no j-icon"></div>
+				<div class="content">
+					<div class="img-box"><img src="http://bbs.redocn.com/digestImages/20081027/200810271132351166712864.jpg"></div>
+					<div class="right">
+						<p class="name">这里是名字这里是名字这里是名字这里是名字这里是名字这里是名字这里是名字这里是名字</p>
+						<p class="type">所属分类：佛书类</p>
+						<div class="button-box">
+							<div class="button j-delete" style="display: none;">删除</div>
+							<div class="butt-box"><div class="button sub">－</div><input type="number" name="" value="1"><div class="button add">＋</div><!-- 这个地方必须要连着这样写哈  不然样式会出问题 -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="iconfont icon-multi-select-no j-icon"></div>
+				<div class="content">
+					<div class="img-box"><img src="http://bbs.redocn.com/digestImages/20081027/200810271132351166712864.jpg"></div>
+					<div class="right">
+						<p class="name">这里是名字这里是名字这里是名字这里是名字这里是名字这里是名字这里是名字这里是名字</p>
+						<p class="type">所属分类：佛书类</p>
+						<div class="button-box">
+							<div class="button j-delete" style="display: none;">删除</div>
+							<div class="butt-box"><div class="button sub">－</div><input type="number" name="" value="1"><div class="button add">＋</div><!-- 这个地方必须要连着这样写哈  不然样式会出问题 -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="button-box bottom">
+		<div class="button icon-all"><span class="iconfont icon-single-select-no"></span><span>全选</span></div>
+		<div class="delete-all">删除</div>
+		<div class="button sublime-butt" style='' id='sublime-butt' href="orderSubmit.html">确定</div>
+	</div>
+</body>
+<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script type="text/javascript">
+	(function(){
+		
+		// 给编辑按钮绑定点击事件
+		$('.j-edit').click(function(e){
+			var _this = $(this),
+				_j_icon = $('.j-icon'),
+				_j_delete = $('.j-delete');
+			if ( _this.text() == '编辑' ) {
+				_this.text('完成');
+				// 将多选按钮 全选按钮等显示出来
+				_j_icon.show();
+				_j_delete.show();
+				$('.icon-all').show();
+				$('.delete-all').show();
+			}else{
+				_this.text('编辑');
+				_j_icon.hide();
+				_j_delete.hide();
+				$('.icon-all').hide();
+				$('.delete-all').hide();
+			}
+		});
+
+		// 给多选按钮绑定事件
+		$('.body').on('click','.j-icon',function(e){
+			var _this = $(this),
+				_edit = $('.j-edit');
+			if ( _edit.text() == '完成' ) {
+				if ( _this.hasClass('icon-multi-select-no') ) {
+					_this.removeClass('icon-multi-select-no').addClass('icon-multi-select-yes');
+					if ( $('.j-icon').length == $('.j-icon.icon-multi-select-yes').length ) {
+						$('.icon-all .iconfont').removeClass('icon-single-select-no').addClass('icon-single-select-yes');
+					}
+				}
+				else{
+					_this.removeClass('icon-multi-select-yes').addClass('icon-multi-select-no');
+					$('.icon-all .iconfont').removeClass('icon-single-select-yes').addClass('icon-single-select-no');
+				}
+			}
+		});
+
+		// 全选按钮
+		$('.icon-all').click(function(e){
+			var _this = $(this),
+				_j_icon = $('.j-icon'),
+				_iconfont = $('.iconfont',_this);
+			if ( _iconfont.hasClass('icon-single-select-no') ) {
+				_iconfont.removeClass('icon-single-select-no').addClass('icon-single-select-yes');
+				_j_icon.removeClass('icon-multi-select-no').addClass('icon-multi-select-yes');
+			}else{
+				_iconfont.removeClass('icon-single-select-yes').addClass('icon-single-select-no');
+				_j_icon.removeClass('icon-multi-select-yes').addClass('icon-multi-select-no');
+			}
+		});
+
+		//全选删除按钮
+		$('.delete-all').click(function(e){
+			var _dom = $('.j-icon.icon-multi-select-yes');
+			if ( _dom.length !== 0 ) {
+				_dom.parents('.item').remove();
+			}
+		});
+
+		// 单删除按钮
+		$('.body').on('click','.j-delete',function(e){
+			$(this).parents('.item').remove();
+			if ( $('.j-icon').length == $('.j-icon.icon-multi-select-yes').length ) {
+				$('.icon-all .iconfont').removeClass('icon-single-select-no').addClass('icon-single-select-yes');
+			}else{
+				$('.icon-all .iconfont').removeClass('icon-single-select-yes').addClass('icon-single-select-no');
+			}
+		});
+
+		// 减按钮
+		$('.body').on('click','.sub',function(e){
+			var input =  $(this).siblings('input');
+			input.val(parseInt(input.val()) - 1);
+			if (input.val() <= 1) {
+				input.val(1);
+			}
+		});
+		// 加按钮
+		$('.body').on('click','.add',function(e){
+			var input =  $(this).siblings('input');
+			input.val(parseInt(input.val()) + 1);
+		});
+
+	})(window,Zepto);
+	
+</script>
+</html>

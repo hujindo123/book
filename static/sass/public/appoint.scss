@@ -1,0 +1,198 @@
+@charset "utf-8";
+@import '../public/mixture.m.scss';
+// === 产品约定（公共的） begin===
+
+// 定义页面背景
+html{
+	background: url(../../image/public/html_bg_bottom_1125_min.png) left bottom/ 100% auto no-repeat;
+}
+
+//跳转类按钮，不单独占行
+a.butt{
+	display: inline-block;
+}
+
+//跳转类按钮及区域，单独占行
+a.block{
+	display: block;
+}
+
+//图片容器类，图片撑满容器
+.img-box{
+	background: url(../../image/public/loading_img_100_min.png) center/auto 50% no-repeat #f5f5f5;
+	img{
+		width: 100%;
+		height: auto;
+	}
+}
+
+//禁用元素点击事件
+.no-onclick{
+	pointer-events: none;
+}
+
+// 一行文字益处显示省略号
+.text-overflow-1{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+// 多行文字益处显示省略号(只适用于webkit类核和移动端)
+// 需要自己规定行数 -webkit-line-clamp: 3;
+.text-overflow-n{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+//定义2列排列列表
+.list-2-n{
+	overflow: hidden;
+	width: 10rem;
+	margin: 0 auto;
+	.list-2-n-item{
+		width: 5rem;
+		float: left;
+	}
+}
+
+.iconfont{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+// 旋转
+@keyframes rotate360{
+	100%{
+		@include transform-comp($nature: rotate(360deg));
+	}
+}
+@-webkit-keyframes rotate360{
+	100%{
+		@include transform-comp($nature: rotate(360deg));
+	}
+}
+
+// 滚动区域（需要自己固定宽高）
+.scroll{
+	// 滚动
+	overflow: auto;/* winphone8和android4+ */
+	-webkit-overflow-scrolling: touch; /* ios5+ */
+	&::-webkit-scrollbar{
+	    width: 0px;
+	}
+}
+
+// 重改页面滚动区域
+body{
+	@include flex-box($direction: column);
+	height: 100%;
+	.body{
+		@include  flex-item();
+		// 滚动
+		overflow: auto;/* winphone8和android4+ */
+		-webkit-overflow-scrolling: touch; /* ios5+ */
+		width: 100%;
+		&::-webkit-scrollbar{
+		    width: 0px;
+		}
+	}
+}
+
+// 页面title
+header.title{
+	line-height: 1.40625rem;
+	height: 1.40625rem;
+	position: relative;
+	background: url(../../image/public/title_bg_2_150_150_min.png) bottom right/auto 90% no-repeat,linear-gradient(rgb(255, 255, 255), rgb(163, 184, 251),rgb(255, 255, 255));
+	box-shadow: 0 1px 1px #ddd;
+	text-align: center;
+	font-size: 16px;
+	color: #333;
+	padding: 0 2rem;
+	@include text-overflow();
+	.butt{
+		font-size: 12px;
+		color: #888;
+		position: absolute;
+		text-align: center;
+	}
+	.left{
+		width: 1.25rem;
+		height: 1.25rem;
+		line-height: 1.25rem;
+		top: 0.078125rem;
+		left: 0.3125rem;
+		background: url(../../image/public/butt_bg_120_120_min.png) center center/100% auto no-repeat #fff;
+		border-radius: 50%;
+		box-shadow: 0 0 1px #999;
+		-webkit-box-shadow: 0 0 1px #999;
+		&:active{
+			box-shadow: none;
+			-webkit-box-shadow: none;
+		}
+	}
+	.right{
+		width: 1.2rem;
+		right: 5px;
+		color: #444;
+		&:active{
+			background-color: rgba(0,0,0,.1);
+		}
+	}
+}
+
+// button按钮
+.button-box{
+	text-align: center;
+	.button{
+		line-height: 40px;
+		height: 40px;
+		border-radius: 5px;
+		border: 1px solid #ccc;
+		color: #333;
+		background-color: rgba(255,255,255,.8);
+	}
+	.button-1{
+		width: 70%;
+	}
+}
+
+// 没有更多
+.no-more{
+	padding: 0.5rem 0.15625rem;
+	text-align: center;
+	background: linear-gradient(#666,#666) center/94% 1px no-repeat;
+	color: #666;
+	span{
+		display: inline-block;
+		line-height: 1;
+		background-color: #fff;
+	}
+}
+
+// 没有数据
+.no-data{
+	@extend .no-more;
+}
+
+// 正在加载
+.loading{
+	text-align: center;
+	padding: 0.5rem 0;
+	color: #666;
+	span{
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 16px;
+		line-height: 1;
+	}
+	.rotate{
+		animation: rotate360 .75s linear infinite;
+		-webkit-animation: rotate360 .75s linear infinite;
+		margin-right: 10px;
+	}
+}
+
+// === 产品约定（公共的） end===

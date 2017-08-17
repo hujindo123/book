@@ -1,0 +1,42 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+
+// --- 页面样式begin ---
+// 分类列表
+.sort-list{
+	padding: 0.15625rem;
+	box-sizing: border-box;
+	.sort-item{
+		width: 4.53125rem;
+		margin: 0.15625rem;
+		box-shadow: 0 0 1px #ccc;
+		background-color: rgba(255,255,255,0.7);
+		.img-box{
+			height: 4.53125rem;
+		}
+		&:active{
+			box-shadow: none;
+			background-color: #fbfbfb;
+		}
+		.text{
+			text-align: center;
+			padding: 0.15625rem;
+			color: #333;
+		}
+	}
+	.img-box{
+		height: 4.53125rem;
+		img{
+			height: 4.53125rem;
+		}
+	}
+}
+
+
+// --- 页面样式end ---

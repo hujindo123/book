@@ -1,0 +1,195 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+
+// --- 页面样式begin ---
+// 课程详情
+.header{
+	padding: 0.3125rem;
+	overflow: hidden;
+	.header-float-left{
+		float: left;
+		width: 3.125rem;
+		max-width: 100px;
+		max-height: 100px;
+		height: 3.125rem;
+		margin-right: 0.3125rem;
+	}
+	.header-base{
+		p{
+			font-size: 15px;
+			font-weight: 600;
+			padding-bottom: 0.3125rem;
+			@include border-bottom-m($color: #ccc);
+		}
+		.text-box{
+			padding-top: 0.3125rem;
+		}
+	}
+	.text-box{
+		font-size: 12px;
+		color: #777;
+		margin-right: 5px;
+		position: relative;
+		&.line{
+			-webkit-line-clamp: 4;
+		}
+		.butt{
+			position: absolute;
+			bottom: 0;
+		    right: 0;
+		    background-color: #fff;
+		    padding-left: 10px;
+		    font-size: 12px;
+		    color: #3f6ef1;
+		}
+	}
+	
+}
+.pagination{
+	padding-top: 0.3125rem;
+	background: linear-gradient(#ccc,#ccc) left 98%/100% 1px no-repeat;
+}
+.swiper-pagination-bullet{
+	width: 50%;
+	height: initial;
+	background: none;
+	text-align: center;
+	border-radius: initial;
+	box-sizing: border-box;
+	border-bottom: 1px solid #ccc;
+	opacity: 1;
+	line-height: 0.625rem;
+	color: #888;
+	background-color: #fff;
+	&::active{
+		// background-color: rgba(163,184,251,0.1);
+		background-color: #fff;
+	}
+}
+.swiper-pagination-bullet-active{
+	color: #333;
+	border-bottom: 0;
+	border-top: 1px solid #ccc;
+	width: 49%;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	background: url(../../image/public/title_bg_2_150_150_min.png) right bottom/auto 100% no-repeat #fff;
+}
+.pagination-item-0.swiper-pagination-bullet-active{
+	margin-left: 1%!important;
+	background-position: left bottom;
+}
+.pagination-item-1.swiper-pagination-bullet-active{
+	margin-right: 1%!important;
+}
+.conter-box{
+	padding: 0.3125rem;
+	@include border-top-m($color: #ccc);
+	@include border-bottom-m($color: #ccc);
+	.course-status{
+		font-size: 13px;
+		color: #444;
+		.ok{
+			color: #3f6ef1;
+		}
+		a{
+			color: #3f6ef1;
+			float: right;
+		}
+	}
+	.hour{
+		@include flex-box($align: center);
+		padding-top: 0.3125rem;
+		div{
+			@include flex-item();
+			font-size: 13px;
+			color: #444;
+		}
+	}
+}
+.hour-list{
+	padding: 0 0.3125rem;
+	list-style: none;
+	li{
+		@include border-bottom-m($color:#ccc);
+		padding: 0.3125rem 0;
+		color: #848484;
+		font-size: 14px;
+		background-color: rgba(255,255,255,.8);
+		a{
+			@include flex-box($align: center);
+		}
+		.iconfont{
+			font-size: 20px;
+			padding: 5px;
+			color: #848484;
+		}
+		.text{
+			@include flex-item();
+			p{
+				font-size: 12px;
+				color: #848484;
+			}
+			.title{
+				font-size: 14px;
+			}
+		}
+		.button{
+			margin: 0 5px;
+			padding: 5px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+	}
+	.ok{
+		color: #666;
+		.iconfont{
+			color: #a3b8fb;
+		}
+		.text{
+			.title{
+				color: #333;
+			}
+		}
+		.button{
+			border: 1px solid #a3b8fb;
+			color: #a3b8fb;
+		}
+	}
+}
+.photo-box{
+	overflow: hidden;
+	min-height: 10rem;
+	.photo{
+		float: left;
+		width: 2.5rem;
+		p{
+			padding: 0 5px 5px;
+			text-align: center;
+			color: #333;
+		}
+	}
+	.img-box{
+		background: url(../../image/public/loading_img_100_min.png) center/auto 50% no-repeat;
+		height: 2.5rem;
+		border: 5px solid transparent;
+		box-sizing: border-box;
+		border-radius: 50%;
+		box-shadow: 0 0 0 1px #ccc inset;
+		img{
+			height: 2.1875rem;
+			border-radius: 50%;
+		}
+	}
+}
+
+// --- 页面样式end ---;

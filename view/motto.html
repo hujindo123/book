@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<title>格言</title>
+	<link href="http://cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_8n6h2uljkk2o6r.css">
+	<link rel="stylesheet" href="../static/css/page/motto.css">
+	<script type="text/javascript" src="../static/js/public/computeDPR.my.js"></script>
+</head>
+<body class="swiper-container">
+	<header class="title"><a class="butt left" href="my.html">返回</a>格言</header>
+	<div class="pagination"></div>
+	<div class="swiper-wrapper">
+		<div class="scroll swiper-slide">
+			<div class="today">
+				<h2>这里是格言的标题</h2>
+				<p class="hour"><span>发布时间：</span><span>08:00:00</span></p>
+				<div class="content">
+					<p>这类事格言的内容这类事格言的内容这类事格言的内容这类事格言的内容这类事格言的内容这类事格言的内容这类事格言的内容这类事格言的内容</p>
+				</div>
+			</div>
+		</div>
+		<div class="scroll swiper-slide">
+			<div class="history">
+				<a class="item" href="mottoShow.html">
+					<h2>这里时标题</h2>
+					<p class='hour'><span>发布时间：</span><span>2016.10.11</span>&emsp;<span>08:00</span></p>
+				</a>
+				<a class="item" href="mottoShow.html">
+					<h2>这里时标题</h2>
+					<p class='hour'><span>发布时间：</span><span>2016.10.11</span>&emsp;<span>08:00</span></p>
+				</a>
+			</div>
+			<div class="no-data"><span>暂无信息</span></div>
+			<div class="loading"><span class="iconfont icon-loading rotate"></span><span>正在加载中...</span></div>
+			<div class="no-more"><span>没有更多了，我是有底线的人！</span></div>
+		</div>
+	</div>
+</body>
+<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script src="http://cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+<script type="text/javascript">
+
+		
+
+	(function(){
+
+		var mySwiper = new Swiper('.swiper-container', {
+			paginationClickable :true,//分页器控制滚动开启
+			pagination: '.pagination',
+			paginationBulletRender: function (index, className) {
+				return '<div class="' + className + ' pagination-item-' + index + '">' + ((index==0)?('今日格言'):('历史格言')) + '</div>';
+			}
+		});
+
+	})(window,Zepto);
+	
+</script>
+</html>

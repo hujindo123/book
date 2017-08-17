@@ -1,0 +1,185 @@
+@charset "utf-8";
+// === 声明混合 begin===
+
+//transform属性
+//说明：处理transform属性兼容问题（默认处理的是缩小0.5）
+//      调用  无参： @include transform-comp;
+//            有参： @include transform-comp(scaleY(.5));
+@mixin transform-comp($nature:scale(.5)){
+    transform: $nature;
+    -webkit-transform: $nature;
+}
+
+// transform-origin改变原点坐标属性
+// 说明：处理transform-origin属性兼容问题（默认处理及transform-origin的默认值）
+//      调用  无参： @include transform-origin;
+//            有参： @include transform-origin(10%,10%);
+@mixin transform-origin($x:50%,$y:50%){
+    transform-origin: $x $y;
+    -webkit-transform-origin: $x $y;
+}
+
+// 适用于倍率为1的移动端
+// border一像素移动端处理(适用于倍率为1的移动端的纯按钮类元素)（全边框）
+// 说明：border一像素移动端处理（默认处理为 solid类型 #eee颜色）
+//      调用  无参： @include border-m;
+//            有参： @include border-m(dashed,#000);
+@mixin border-m($style:solid,$color:#eeeeee){
+    position: relative;
+    &::after{
+        border: 1px $style $color;
+        width: 200%;
+        height: 200%;
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        @include transform-comp(scale(.5));
+    }
+}
+
+// border一像素移动端处理(上边框)
+// 说明：border一像素移动端处理（默认处理为 solid类型 #eee颜色）
+//      调用  无参： @include border-top-m;
+//            有参： @include border-top-m(dashed,#000);
+@mixin border-top-m($style:solid,$color:#eeeeee){
+    position: relative;
+    &::before{
+        border-top: 1px $style $color;
+        width: 100%;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include transform-comp(scaleY(.5));
+        @include transform-origin($y:0);
+    }
+}
+
+// border一像素移动端处理(右边框)
+// 说明：border一像素移动端处理（默认处理为 solid类型 #eee颜色）
+//      调用  无参： @include border-right-m;
+//            有参： @include border-right-m(dashed,#000);
+@mixin border-right-m($style:solid,$color:#eeeeee){
+    position: relative;
+    &::before{
+        border-right: 1px $style $color;
+        height: 100%;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include transform-comp(scaleX(.5));
+        @include transform-origin($x:100%);
+    }
+}
+
+// border一像素移动端处理(下边框)
+// 说明：border一像素移动端处理（默认处理为 solid类型 #eee颜色）
+//      调用  无参： @include border-bottom-m;
+//            有参： @include border-bottom-m(dashed,#000);
+@mixin border-bottom-m($style:solid,$color:#eeeeee){
+    position: relative;
+    &::after{
+        border-bottom: 1px $style $color;
+        width: 100%;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include transform-comp(scaleY(.5));
+        @include transform-origin($y:100%);
+    }
+}
+
+// border一像素移动端处理(下边框)
+// 说明：border一像素移动端处理（默认处理为 solid类型 #eee颜色）
+//      调用  无参： @include border-left-m;
+//            有参： @include border-left-m(dashed,#000);
+@mixin border-left-m($style:solid,$color:#eeeeee){
+    position: relative;
+    &::after{
+        border-left: 1px $style $color;
+        height: 100%;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include transform-comp(scaleX(.5));
+        @include transform-origin($x:0);
+    }
+}
+
+// flex布局处理
+// ==== justify: 弹性盒子元素在主轴（横轴）方向上的对齐方式。
+//               flex-start(默认) 子元素左对齐（居父容器的左边）
+//               flex-end 子元素右对齐（居父容器的右边）
+//               center 子元素中间对齐（居父容器的横向中间）
+//      
+//      align: 弹性盒子元素在侧轴（纵轴）方向上的对齐方式。
+//             stretch（默认）子元素纵向拉伸以适应父容器的高度
+//             flex-start 子元素顶部对齐（子元素的高度适应其内部的子元素的高度，不被拉伸）（居父容器顶部）
+//             flex-end 子元素底部对齐（子元素的高度适应其内部的子元素的高度，不被拉伸） （居父容器底部）
+//             center 子元素中间对齐 （子元素的高度适应其内部的子元素的高度，不被拉伸）（居父容器的纵向中间）
+//             
+//      direction：设置flex的主轴方向以及子元素对其方式
+//                 row（默认）设置主轴方向为横向 子元素横向排列为一行 顺序与文档流中的顺序一致
+//                 row-reverse  设置主轴方向为横向 子元素横向排列为一行 顺序与文档流中的顺序相反
+//                 column 设置主轴方向为纵向 子元素纵向排列为一列 顺序与文档流中的顺序一致
+//                 column-reverse 设置主轴方向为纵向 子元素纵向排列为一列 顺序与文档流中的顺序相反
+//      wrap: 设置flex子元素是否可以折行显示
+//            nowrap （默认）设置flex子元素不折行显示，全部显示在一行
+//            wrap 设置flex子元素可以折行显示，当子元素在一行显示不完的时候会折行到第二行去显示！顺序是文档流到顺序
+//            wrap-reverse 将wrap的顺序反转过来
+@mixin flex-box($justify:flex-start,$align:stretch,$direction:row,$wrap:nowrap){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    // 设置子元素沿主轴对齐方式（水平）
+    -webkit-box-pack: $justify;
+    -webkit-justify-content: $justify;
+    justify-content: $justify;
+    // 设置子元素沿侧轴对齐方式（垂直）
+    -webkit-box-align: $align;
+    -webkit-align-items: $align;
+    align-items: $align;
+    // 设置flex的主轴方向以及子元素对其方式
+    -webkit-flex-direction: $direction;
+    flex-direction: $direction;
+    // 如果$direction设置了纵向排列！（兼容老版本的）
+    @if $direction == column {
+        -webkit-box-orient: vertical;
+    } @else if $direction == row {
+        -webkit-box-orient: horizontal;
+    } @else {
+        -webkit-box-direction: reverse;
+    }
+    // 设置flex子元素是否可以折行显示（默认是不折行显示）
+    flex-wrap: $wrap;
+    -webkit-flex-wrap: $wrap;
+}
+
+@mixin flex-item($number:1){
+    // 在旧版的规范中，使用比例伸缩布局时，子元素的内容长短不同会导致无法“等分”，这个时候，我们需要给子元素设置一个“width:0%”来解决问题。
+    width: 0%;
+    -webkit-box-flex: $number;
+    -webkit-flex: $number;
+    flex: $number;
+}
+
+//文字益处显示省略号 
+//  $line    控制文字为多少行   默认为1行
+@mixin text-overflow($line:1){
+    @if $line == 1{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;  //强制文字在一行中显示
+    } @else{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: $line;
+    }
+}
+
+// === 声明混合 end===

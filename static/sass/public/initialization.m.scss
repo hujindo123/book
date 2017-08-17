@@ -1,0 +1,161 @@
+@charset "utf-8";
+// === 移动端 初始化 begin===
+html{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    outline: none;
+    // 去除 ios safari浏览器的默认触摸弹出菜单
+    -webkit-touch-callout: none;
+    // 不让用户选择文字
+    -webkit-user-select: none;
+    user-select: none;
+    // 处理chrome强制将小于12px的文本按照12px来解析的bug
+    -webkit-text-size-adjust: none;
+    font-size: 14px;
+}
+
+// ---滚动条清除默认样式---
+html::-webkit-scrollbar{
+    width: 0px;
+}
+
+body{
+    font-family: "Hiragino Sans GB","华文细黑","STHeiti","微软雅黑","Microsoft YaHei",SimHei,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    min-height: 100%;
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+a,
+aside,
+article,
+body,
+blockquote,
+code,
+cite,
+div,
+dl,
+dt,
+dd,
+del,
+em,
+footer,
+figcaption,
+figure,
+form,
+fieldset,
+header,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+img,
+li,
+legend,
+mark,
+nav,
+ol,
+p,
+pre,
+section,
+span,
+strong,
+th,
+td,
+time,
+textarea,
+ul,
+var{
+    margin: 0;
+    padding: 0;
+}
+
+article,
+aside,
+div,
+header,
+section,
+footer,
+nav,
+figure{
+    display: block;
+}
+
+ol,
+ul{
+    padding-left: 20px;
+}
+
+input,
+textarea,
+button,
+select{
+    // 去除input的默认点击效果
+    outline: none;
+    border: 0;
+    // -webkit-appearance: none;
+    // appearance: none;
+    font: inherit;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+}
+
+// //去掉input textarrea a 等在移动端ios可选取的元素在获得焦点时的默认效果(待实验)
+// a:focus,
+// input:focus,
+// textarea:focus{
+//     border: 0;
+// }
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active{
+    text-decoration: none;
+    font-weight: normal;
+    outline: none;
+    color: inherit;
+    // 去掉移动端a标签点击时出现的背景
+    -webkit-tap-highlight-color: transparent;
+}
+
+img{
+    border: none;
+    // 处理图片在有些浏览器下与容器有几px的间距问题
+    vertical-align: middle;
+    // 处理移动端图片点击时出现的背景
+    -webkit-tap-highlight-color: transparent;
+    // 禁用长按弹出保存菜单  当遇到要识别二维码的时候需要将值设置成auto
+    pointer-events: none;
+}
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    vertical-align: middle;
+}
+
+hr{
+    width: 100%;
+    height: 1px;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+    background-color: #cccccc;
+}
+
+// ---去掉number的上箭头和下箭头---
+input[type=number]::-webkit-inner-spin-button,  
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none; 
+    appearance: none;
+}
+
+// === 移动端 初始化 end===
+

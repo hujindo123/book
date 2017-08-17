@@ -1,0 +1,73 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+// 引入弹出层组件
+@import '../public/dialogAlert.scss';
+// === 我的管理员 ===
+
+.photo-box{
+	width: 2.5rem;
+	height: 2.5rem;
+	margin: 1rem auto 8px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	box-shadow: 0 0 8px 1px #fbff01;
+	background-size: auto 80%;
+}
+h2{
+	font-size: 15px;
+	text-align: center;
+	line-height: 1.5;
+}
+.msg{
+	font-size: 12px;
+	color: #333;
+	text-align: center;
+	line-height: 1.5;
+	a{
+		color: #3f6ef1;
+		font-size: 14px;
+	}
+}
+.introduce-title{
+	font-size: 14px;
+	color: #333;
+	padding-left: 5px;
+	line-height: 30px;
+}
+.introduce{
+	padding: 5px;
+	font-size: 14px;
+	p{
+		text-indent: 2em;
+		color: #333;
+		line-height: 1.3;
+		padding-bottom: 5px;
+	}
+}
+.dialog-alert{
+	display: none;
+	.content{
+		.img-box{
+			background-color: #fff;
+			// padding: 0 5px;
+			// position: relative;
+			overflow: hidden;
+			padding-top: 100%;
+			font-size: 0;
+			img{
+				// position: absolute;
+				// top: 0;
+				// left: 0;
+				pointer-events: auto;
+				margin-top: -100%;
+			}
+		}
+	}
+}

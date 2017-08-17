@@ -1,0 +1,100 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+// 引入swiper标题组件
+@import '../public/swiperPagination.scss';
+
+// === 大礼拜 ===
+
+.list{
+	background-color: rgba(255,255,255,.5);
+	font-size: 14px;
+	.item{
+		padding: 0 5px;
+		@include flex-box($align: center);
+		// @include border-bottom-m($color:#ccc);
+		line-height: 40px;
+
+	}
+	.input-box{
+		@include border-bottom-m($color:#ccc);	
+		@include flex-item();
+		input{
+			color: #444;
+			width: 100%;
+			font-size: 13px;
+			&.no-width-100{
+				width: auto;
+				vertical-align: text-top;
+			}
+		}
+		input[readonly]{
+			background-color: #e9e9e9;
+		}
+		input[type="date"]::-webkit-inner-spin-button{
+			display: none;
+		}
+		input[type="date"]::-webkit-calendar-picker-indicator{
+			background-color: #ccc;
+			display: none;
+		}
+		select{
+			width: 100%;
+			height: 39px;
+		}
+		textarea{
+			width: 100%;
+		}
+	}
+}
+.title-left{
+	.title{
+		width:	85px;
+		text-align: right;
+	}
+}
+.button-box{
+	padding: 20px 0;
+}
+
+.history-list{
+	padding: 10px 0;
+	.item{
+		line-height: 40px;
+		padding: 0 5px;
+		@include border-bottom-m($color: #ccc);
+		&:first-of-type{
+			@include border-top-m($color: #ccc);
+		}
+		span{
+			display: inline-block;
+			vertical-align: middle;
+			color: #333;
+		}
+		.time{
+			margin-left: 10px;
+		}
+		.iconfont{
+			float: right;
+			color: #888;
+		}
+	}
+}
+.swiper-pagination-bullet{
+	width: 33%;
+}
+.pagination-item-0.swiper-pagination-bullet-active{
+	margin-left: 1%!important;
+	background-position: left bottom;
+}
+.pagination-item-2.swiper-pagination-bullet-active{
+	margin-right: 1%!important;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+	margin: 0;
+}

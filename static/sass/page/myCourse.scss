@@ -1,0 +1,51 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+// 引入swiper标题组件
+@import '../public/swiperPagination.scss';
+
+// === 我的课程 ===
+
+.swiper-slide{
+	background-color: rgba(255,255,255,.7);
+}
+.list{
+	padding: 10px 0;
+	.item{
+		padding: 0 5px;
+		@include border-bottom-m($color:#ccc);
+		@include flex-box($align: center);
+		line-height: 40px;
+		&:first-of-type{
+			@include border-top-m($color:#ccc);
+		}
+		.content{
+			@include flex-item();
+		}
+		.iconfont{
+			color: #888;
+		}
+	}
+	.content{
+		padding: 10px 0;
+		h2,p{
+			line-height: 1.2;
+			font-weight: 100;
+			color: #333;
+			font-size: 14px;
+			@include text-overflow();
+		}
+		p{
+			color: #bbb;
+			font-size: 12px;
+			padding-top: 5px;
+		}
+	}
+}
+
+

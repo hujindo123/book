@@ -1,0 +1,117 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+// --- 页面样式begin ---
+
+// === 提交订单 ===
+.body{
+	padding: 0 10px;
+	box-sizing: border-box;
+}
+.order{
+	padding: 5px 0;
+	p{
+		line-height: 30px;
+		color: #333;
+		.time{
+			float: right;
+			font-size: 12px;
+			color: #888;
+		}
+	}
+}
+
+// 恭请的佛书列表
+.list{
+	background-color: rgba(255,255,255,.8);
+	border-radius: 5px;
+	overflow: hidden;
+	padding-bottom: 10px;
+	header{
+		line-height: 40px;
+		padding: 0 5px;
+		font-size: 15px;
+		color: #333;
+		@include border-bottom-m($color: #ccc);
+	}
+	// .title{
+	// 	@include flex-box();
+	// 	@include border-right-m($color: #ccc);
+	// 	@include border-bottom-m($color: #ccc);
+	// 	text-align: center;
+	// 	line-height: 25px;
+	// 	.name{
+	// 		@include flex-item();
+	// 	}
+	// 	div{
+	// 		@include border-left-m($color: #ccc);
+	// 		font-size: 12px;
+	// 	}
+	// 	.type{
+	// 		width: 2rem;
+	// 	}
+	// 	.number{
+	// 		width: 1.5rem;
+	// 	}
+	// }
+	.item{
+		.box{
+			@include flex-box();
+			text-align: center;
+			@include border-bottom-m($color: #ccc);
+			div{
+				@include border-left-m($color: #ccc);
+				padding: 10px 0;
+				line-height: 1.4;
+				font-size: 13px;
+			}
+			.name{
+				@include flex-item();
+			}
+			.type,.sort{
+				width: 2rem;
+			}
+			.number{
+				width: 1.5rem;
+			}
+		}
+		label{
+			@include flex-box($align: center);
+			input{
+				@include flex-item();
+				line-height: 35px;
+				border-bottom: 1px solid #ccc;
+				padding-left: 10px;
+			}
+		}
+	}
+	.money{
+		line-height: 30px;
+		span,strong{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		strong{
+			color: #444;
+		}
+		strong:first-of-type{
+			margin-right: 40px;
+		}
+	}
+	&:first-of-type{
+		.item{
+			@include border-right-m($color: #ccc);
+		}
+	}
+}
+.button-box{
+	margin-top: 25px;
+	padding-bottom: 30px;
+}
+
+// --- 页面样式end ---

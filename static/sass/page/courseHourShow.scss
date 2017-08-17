@@ -1,0 +1,64 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+
+// === 课时详情 ===
+
+// --- 内容 ---
+.content {
+  padding: 10px;
+  font-size: 13px;
+  p {
+    text-indent: 2em;
+    padding-bottom: 5px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5px;
+  }
+  video {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 5px;
+  }
+}
+
+// --- 学习状态 ---
+.status {
+  height: 1.25rem;
+  line-height: 1.25rem;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, .8);
+  .status_left {
+    display: inline-block;
+    text-align: left;
+    position: absolute;
+    left: 5px;
+    .title {
+      color: #333;
+    }
+    .text {
+      color: #3f6ef1;
+    }
+  }
+  .status_right{
+    position: absolute;
+    right: 5px;
+    padding: 0 5px 0 15px;
+    display: inline-block;
+    text-align: right;
+    color: #3f6ef1;
+  }
+
+}

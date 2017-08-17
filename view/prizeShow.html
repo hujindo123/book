@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<title>恭请加持物</title>
+	<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_30c5c7n1c127f1or.css">
+	<link href="http://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../static/css/page/sortShow.css">
+	<script type="text/javascript" src="../static/js/public/computeDPR.my.js"></script>
+</head>
+<body>
+	<header class="title"><a class="butt left" href="prize.html">返回</a>加持物分类X</header>
+	<div class="body">
+		<!-- <form action="" method="" accept-charset="utf-8"> -->
+			<div class="list-2-n sort-show-list">
+				<div class="list-2-n-item sort-show-item" id="id-1">
+					<div class="img-box"><img onerror="this.remove();" src=""></div>
+					<div class="text"><p class="name text-overflow-1">加持物分类X名字X</p></div>
+					<div class="position-absolute-box"><span class="right-top iconfont icon-single-select-no"></span></div>
+				</div>
+				<div class="list-2-n-item sort-show-item" id="id-2">
+					<div class="img-box"><img onerror="this.remove();" src="http://pic.58pic.com/58pic/15/62/72/30r58PICFtM_1024.jpg"></div>
+					<div class="text"><p class="name text-overflow-1">加持物分类X名字X</p></div>
+					<div class="position-absolute-box"><span class="right-top iconfont icon-single-select-no"></span></div>
+				</div>
+				<div class="list-2-n-item sort-show-item" id="id-1">
+					<div class="img-box"><img onerror="this.remove();" src=""></div>
+					<div class="text"><p class="name text-overflow-1">加持物分类X名字X</p></div>
+					<div class="position-absolute-box"><span class="right-top iconfont icon-single-select-no"></span></div>
+				</div>
+				<div class="list-2-n-item sort-show-item" id="id-2">
+					<div class="img-box"><img onerror="this.remove();" src="http://pic.58pic.com/58pic/15/62/72/30r58PICFtM_1024.jpg"></div>
+					<div class="text"><p class="name text-overflow-1">加持物分类X名字X</p></div>
+					<div class="position-absolute-box"><span class="right-top iconfont icon-single-select-no"></span></div>
+				</div>
+				<div class="list-2-n-item sort-show-item" id="id-1">
+					<div class="img-box"><img onerror="this.remove();" src=""></div>
+					<div class="text"><p class="name text-overflow-1">加持物分类X名字X</p></div>
+					<div class="position-absolute-box"><span class="right-top iconfont icon-single-select-no"></span></div>
+				</div>
+				<div class="list-2-n-item sort-show-item" id="id-2">
+					<div class="img-box"><img onerror="this.remove();" src="http://pic.58pic.com/58pic/15/62/72/30r58PICFtM_1024.jpg"></div>
+					<div class="text"><p class="name text-overflow-1">加持物分类X名字X</p></div>
+					<div class="position-absolute-box"><span class="right-top iconfont icon-single-select-no"></span></div>
+				</div>
+			</div>
+			<div class="button-box">
+				<a class="button button-1 animated" style='display: none;' id='sublime-butt' href="orderSubmit.html">恭请加持物</a>
+			</div>
+		<!-- </form> -->
+	</div>
+</body>
+<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script type="text/javascript">
+	(function(){
+		// 给加持物加上点击事件    单选项绑定选择事件
+		$('.sort-show-list').on('touchend','.sort-show-item',function(e){
+			var _this = $(this),
+				_this_icon = $('.right-top.iconfont',_this),
+				item_yes = $('.sort-show-item.selected'),
+				right_top_icon_yes = $('.right-top.iconfont',item_yes);
+			// 清空选中项
+			item_yes.removeClass('selected');
+			right_top_icon_yes.removeClass('icon-single-select-yes').addClass('icon-single-select-no');
+			// 给当前选中项加上选中状态
+			_this.addClass('selected');
+			_this_icon.removeClass('icon-single-select-no').addClass('icon-single-select-yes');
+			// 判断是否应该显示提交按钮
+			sublimeStatus();
+		});
+
+		// 判断是否应该显示提交按钮
+		function sublimeStatus(){
+			var dom = $('.sort-show-item.selected');
+			var _sublime = $('#sublime-butt');
+			if( dom.length === 0 ){
+				// 隐藏
+				_sublime.removeClass('jello').attr('style','display: none;');
+			}else{
+				// 显示
+				_sublime.addClass('jello').attr('style','display: inline-block;');
+			}
+		}
+	})(window,Zepto);
+	
+</script>
+</html>

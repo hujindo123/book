@@ -1,0 +1,84 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+
+// === 管理员列表 ===
+.order{
+	padding: 5px 10px;
+	p{
+		padding-top: 5px;
+	}
+}
+
+.msg{
+	line-height: 30px;
+	padding: 0 10px;
+}
+
+.list{
+	background-color: rgba(255,255,255,.5);
+	@include border-top-m($color: #ccc);
+	.item{
+		padding: 10px 5px;
+		@include border-bottom-m($color:#ccc);
+		@include flex-box();
+		.img-box{
+			width: 1.875rem;
+			height: 1.875rem;
+			margin: 0 5px;
+			img{
+				width: 1.875rem;
+				height: 1.875rem;
+			}
+		}
+		.content{
+			@include flex-item();
+			@include flex-box($direction: column);
+		}
+		.iconfont{
+			line-height: 1.8rem;
+		}
+		.title{
+			margin-top: 5px;
+			.butt{
+				float: right;
+				color: #3f6ef1;
+			}
+		}
+		.text{
+			text-indent: 28px;
+			margin-top: 5px;
+			@include flex-item();
+			width: 100%;
+			overflow: hidden;
+			@include text-overflow($line: 1);
+			height: 0.625rem;
+			white-space: pre-line;
+			position: relative;
+			&::after{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 16px;
+				content: '';
+				background: linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
+				background: -webkit-linear-gradient(rgba(255,255,255,0),rgba(255,255,255,1));
+			}
+			&.text-no{
+				height: inherit;
+				&::after{
+					display: none;
+				}
+			}
+		}
+	}
+}
+.button{
+	margin: 0 auto;
+}

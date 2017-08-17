@@ -1,0 +1,28 @@
+@charset 'utf-8';
+// === 弹出层组件 ===
+.dialog-alert{
+	background-color: #fff;
+	.mask{
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(0,0,0,.5);
+		z-index: 9998;
+	}
+	.content{
+		z-index: 9999;
+		position: fixed;
+		width: 80%;
+		background-color: #fff;
+		top: 50%;
+		left: 50%;
+		@include transform-comp($nature: translate(-50%,-50%));
+		.text{
+			padding: 5px;
+			text-align: center;
+			font-size: 14px;
+		}
+	}
+}

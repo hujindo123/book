@@ -1,0 +1,62 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+// 引入swiper标题组件
+@import '../public/swiperPagination.scss';
+// --- 页面样式begin ---
+// 课程列表
+
+.course-list{
+	padding: 0.15625rem 0.15625rem 0 0.15625rem;
+	box-sizing: border-box;
+	.course-item{
+		width: 4.53125rem;
+		margin: 0.15625rem;
+		box-shadow: 0 0 1px #ccc;
+		background-color: rgba(255,255,255,0.7);
+		.img-box{
+			height: 4.53125rem;
+		}
+		&:active{
+			box-shadow: none;
+			background-color: #fbfbfb;
+		}
+		.text{
+			text-align: center;
+			padding: 0.15625rem;
+			color: #333;
+		}
+	}
+	.img-box{
+		height: 4.53125rem;
+		img{
+			height: 4.53125rem;
+		}
+	}
+}
+.no{
+	a{
+		position: relative;
+		pointer-events: none;
+		&::after{
+			content: '课程正在上架中...';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0,.1);
+			line-height: 5.5rem;
+			font-size: 15px;
+			text-align: center;
+		}
+	}
+}
+
+
+// --- 页面样式end ---

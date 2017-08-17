@@ -1,0 +1,49 @@
+@charset 'utf-8';
+// === 分类列表 ===
+// 引入初始化scss
+@import '../public/initialization.m.scss';
+// 引入定义的混合
+@import '../public/mixture.m.scss';
+// 引入产品定义
+@import '../public/appoint.scss';
+// 引入swiper标题组件
+@import '../public/swiperPagination.scss';
+
+// === 管理员列表 ===
+.today{
+	h2{
+		font-size: 15px;
+		text-align: center;
+		line-height: 35px;
+		font-weight: 100;
+		color: #333;
+	}
+	.hour{
+		font-size: 12px;
+		padding-bottom: 10px;
+		text-align: right;
+		padding-right: 10px;
+		color: #bdbdbd;
+	}
+	.content{
+		padding: 0 5px;
+		color: #666;
+		p{
+			text-indent: 2em;
+	    	padding-bottom: 5px;
+		}
+	}
+}
+
+.history{
+	@extend .today;
+	.item{
+		display: block;
+		padding: 10px;
+		@include border-bottom-m($color: #ccc);
+		h2,p{
+			text-align: left;
+		}
+	}
+
+}

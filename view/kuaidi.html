@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<title>快递管理</title>
+	<link rel="stylesheet" href="../static/css/page/dalibai.css">
+	<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_s49d34j2359udi.css">
+	<script type="text/javascript" src="../static/js/public/computeDPR.my.js"></script>
+</head>
+<body>
+	<header class="title"><a class="butt left" href="my.html">返回</a>快递管理</header>
+	<div class="body">
+		<form action="" method="" accept-charset="utf-8">
+			<div class="list title-left">
+				<div class="item">
+					<div class="title">单号：</div>
+					<div class="input-box"><input type="text" readonly name="danhao" value="0123489723123"></div>
+					<!-- readonlys属性是指的该元素只读 -->
+					<!-- required属性是指该元素为必需输入的 -->
+				</div>
+				<div class="item">
+					<div class="title">收货人：</div>
+					<div class="input-box"><input type="text" readonly name="yingshoukuan" value="张某某"></div>
+				</div>
+				<div class="item">
+					<div class="title">电话：</div>
+					<div class="input-box"><input type="number" readonly name="yingshoukuan" value="13990001111"></div>
+				</div>
+				<div class="item">
+					<div class="title">收获地址：</div>
+					<div class="input-box"><input type="text" readonly name="yingshoukuan" value="地址"></div>
+				</div>
+				<div class="item">
+					<div class="title">快递公司：</div>
+					<div class="input-box">
+						<select>
+							<option value ="快递公司1">快递公司1</option>
+							<option value ="快递公司2">快递公司2</option>
+						</select>
+					</div>
+				</div>
+				<div class="item">
+					<div class="title">订单号：</div>
+					<div class="input-box"><input type="number" name="shoukuanjinge" required value=""></div>
+				</div>
+				<div class="item">
+					<div class="title">快递状态：</div>
+					<div class="input-box">
+						<label style="margin-right: 10px;"><input class="no-width-100" type="radio" name="shoukuanfangshi" value="no">已送出</label>
+						<label><input class="no-width-100" type="radio" name="shoukuanfangshi" value="yes">已签收</label>
+					</div>
+				</div>
+				<div class="item">
+					<div class="title">快递经办人：</div>
+					<div class="input-box"><input type="text" name="shoukuanjingbanren" value=""></div>
+				</div>
+				<div class="item">
+					<div class="title">备注：</div>
+					<div class="input-box"><textarea></textarea></div>
+				</div>
+			</div>
+			<div class="button-box"><button class="button button-1" type="submit">提交</button></div>
+			<div class="button-box"><button class="button button-1" type="reset">重置</button></div>
+		</form>
+	</div>
+</body>
+<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+<script src="http://cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+</html>
